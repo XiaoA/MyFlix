@@ -26,3 +26,8 @@ Video.create(title: "South Park",
              description: "Nothing is sacred in South Park. Join Stan, Kyle, Cartman, Kenny, and the rest of the town for adventures that are both delightful and distubring.",
              small_cover_url: "/public/tmp/south_park.jpg",
              large_cover_url: "/public/tmp/south_park.jpg")
+
+
+Category.create(category_name: "Animation")
+Category.create(category_name: "Dramas")
+Category.create(category_name: "Comedies")
