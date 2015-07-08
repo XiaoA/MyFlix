@@ -28,6 +28,6 @@ Video.create(title: "South Park",
              large_cover_url: "/tmp/south_park.jpg")
 
 
-Category.create(category_name: "Animation")
-Category.create(category_name: "Dramas")
-Category.create(category_name: "Comedies")
+animation = Category.create(category_name: "Animation")
+dramas = Category.create(category_name: "Dramas")
+comedies = Category.create(category_name: "Comedies")

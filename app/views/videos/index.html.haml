@@ -1,27 +1,9 @@
 %article.video_category
-  %header
-    %h3= link_to "Comedies"
+  - @categories.each do |category|
+    %header
+      %h3= link_to category.category_name, category_path(category)
     .videos.row
-      - 6.times do
+      - category.videos.each do |video|
         .video.col-sm-2
-          = link_to "", nil do
-            %img(src="/tmp/#{['futurama', 'south_park', 'family_guy'].sample}.jpg")
-
-%article.video_category
-  %header
-    %h3= link_to "Dramas"
-    .videos.row
-      - 6.times do
-        .video.col-sm-2
-          = link_to "", nil do
-            %img(src="/tmp/#{['monk', 'south_park', 'family_guy'].sample}.jpg")
-
-%article.video_category
-  %header
-    %h3= link_to "Animation"
-    .videos.row
-      - 6.times do
-        .video.col-sm-2
-          = link_to "", nil do
-            %img(src="/tmp/#{['futurama', 'south_park', 'family_guy'].sample}.jpg")
-
+          = link_to video_path(video), nil do
+            %img(src="#{video.small_cover_url}")
