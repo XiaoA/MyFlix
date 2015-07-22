@@ -12,5 +12,5 @@ Myflix::Application.routes.draw do
   get 'ui(/:action)', controller: 'ui'
   get 'register', to: 'users#new'
 
-  resources :users, only: :show
+  resources :users
 end
