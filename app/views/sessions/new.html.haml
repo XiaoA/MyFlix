@@ -7,9 +7,9 @@
         %fieldset
           .form-group.row
             .col-sm-4
-              = f.email_field :email, class: "form-control"
+              = f.email_field :email
           .form-group.row
             .col-sm-4
-              = f.password_field :password, label: "Password", class: "form-control"
+              = f.password_field :password, label: "Password"
         %fieldset.form-group.action
           = f.submit value: "Sign In", class: "btn btn-default"
