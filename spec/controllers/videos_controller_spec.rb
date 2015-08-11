@@ -12,13 +12,8 @@ describe VideosController do
         get :show, id: video.id
         expect(assigns(:video)).to eq(video)
       end 
-    
-    it "renders the show template" do
-        video = Fabricate(:video)
-        get :show, id: video.id
-        expect(response).to render_template :show
-      end
     end
+
   end
 end
 
