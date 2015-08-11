@@ -6,17 +6,18 @@ describe VideosController do
       before do
         session[:user_id] = Fabricate(:user).id
       end
+      
       it "sets @video" do
         video = Fabricate(:video)
         get :show, id: video.id
         expect(assigns(:video)).to eq(video)
       end 
-    end
     
     it "renders the show template" do
         video = Fabricate(:video)
         get :show, id: video.id
         expect(response).to render_template :show
+      end
     end
   end
 end
