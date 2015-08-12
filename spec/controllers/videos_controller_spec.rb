@@ -15,5 +15,20 @@ describe VideosController do
       expect(response).to redirect_to sign_in_path
     end
   end
+
+  describe "POST search" do
+    it "sets @results for authenticated users" do
+      session[:user_id] = Fabricate(:user).id
+      monk = Fabricate(:video, title: 'Monk')
+      post :search, search_term: 'onk'
+      expect(assigns(:results)).to eq([monk])
+    end
+
+    it "redirectos to sign in page for unauthenticated users" do
+      monk = Fabricate(:video, title: 'Monk')
+      post :search, search_term: 'onk'
+      expect(response).to redirect_to sign_in_path
+    end
+  end
 end
 
