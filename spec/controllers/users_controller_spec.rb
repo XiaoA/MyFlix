@@ -10,25 +10,31 @@ describe UsersController do
 
   describe "POST create" do
     context "with valid input" do
+
+      before do 
+        post :create, user: Fabricate.attributes_for(:user)
+      end
+
       it "creates a new user" do
-        post :create, user: {email: "andrew@example.com", password: "password", full_name: "Andrew Buckingham" }
         expect(User.count).to eq(1)
       end
 
       it "redirects to the sign in page" do
-        post :create, user: {email: "andrew@example.com", password: "password", full_name: "Andrew Buckingham" }
         expect(response).to redirect_to sign_in_path
       end
     end
 
     context "with invalid input" do
+
+      before do
+        post :create, user: { password: "password", full_name: "Andrew Buckingham" } 
+      end
+
       it "does not create the user" do
-        post :create, user: { password: "password", full_name: "Andrew Buckingham" }
         expect(User.count).to eq(0)
       end
 
       it "renders the :new template" do
-        post :create, user: { password: "password", full_name: "Andrew Buckingham" }
         expect(response).to render_template :new
       end
 
