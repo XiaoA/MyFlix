@@ -49,4 +49,14 @@ ActiveRecord::Schema.define(version: 20150815035427) do
     t.integer  "category_id"
   end
 
+  create_table "vs_database_diagrams", id: false, force: true do |t|
+    t.string   "name",     limit: 80
+    t.text     "diadata"
+    t.string   "comment",  limit: 1022
+    t.text     "preview"
+    t.string   "lockinfo", limit: 80
+    t.datetime "locktime"
+    t.string   "version",  limit: 80
+  end
+
 end

@@ -6,6 +6,9 @@
       %li= link_to "Videos"
       %li= link_to "My Queue"
       %li= link_to "People"
+    = form_tag search_videos_path, method: "get", class: "col-md-5.navbar-form.form-group" do    
+      %input.form-control(name= "search_term" type="text" placeholder="Search for videos here")
+      %button.btn.btn-default(type="submit") Search
     #user_links.pull-right
       %ul
         %li.dropdown
@@ -17,6 +20,3 @@
               %a(href="#") Account
               %a(href="#") Plan and Billing
               = link_to "Sign Out", sign_out_path
-    = form_tag search_videos_path, method: "get", class: "col-md-5.navbar-form.form-group" do    
-      %input.form-control(name= "search_term" type="text" placeholder="Search for videos here")
-      %button.btn.btn-default(type="submit") Search
