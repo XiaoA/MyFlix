@@ -59,7 +59,7 @@ Video.create(title: "Futurama",
              small_cover_url: "/tmp/futurama.jpg",
              large_cover_url: "/tmp/futurama.jpg")
 
-Video.create(title: "Monk",
+monk = Video.create(title: "Monk",
              description: "A brilliant detective, riddled with OCD and phobias, solves crimes in San Francisco, while searching for his wife's elusive killer.",
              category: dramas,
              small_cover_url: "/tmp/monk.jpg",     
@@ -78,5 +78,7 @@ Video.create(title: "Family Guy",
              large_cover_url: "/tmp/family_guy.jpg")
 
 
+andrew = User.create(full_name: "Andrew Buckingham", email: "andrew@example.com", password: "password")
 
-
+Review.create(user: andrew, video: monk, rating: 5, content: "What a brilliant show!")
+Review.create(user: andrew, video: monk, rating: 2, content: "Nice idea, but got boring after a few shows.")
