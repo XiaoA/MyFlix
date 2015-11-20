@@ -7,14 +7,16 @@ Myflix::Application.routes.draw do
   post 'sign_in', to: 'sessions#create'
   get 'sign_out', to: 'sessions#destroy'
 
-  resources :videos, only: :show do
+  resources :videos, only:  [:show] do
     collection do
-      get :search, to: 'videos#search'
+      post 'search', to: 'videos#search'
     end
-  end
+      resources :reviews, only: [:create]
+      end
     
-  resources :categories, only: :show
-  resources :users, only: :create
-  resources :sessions, only: :create
+  resources :categories, only: [:show]
+  resources :users, only: [:create]
+  resources :sessions, only: [:create]
+
 
 end
