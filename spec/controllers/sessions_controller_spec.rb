@@ -17,19 +17,20 @@ describe SessionsController do
   describe "POST create" do
     context "with valid credentials" do
       let(:user) { Fabricate(:user) }
-          
-      it "puts the signed-in user in the session" do
+
+      before do
         post :create, email: user.email, password: user.password
+      end
+
+      it "puts the signed-in user in the session" do
         expect(session[:user_id]).to eq(user.id)
       end
 
       it "redirects to the home page" do
-        post :create, email: user.email, password: user.password
         expect(response).to redirect_to home_path
       end
 
       it "sets the notice" do
-        post :create, email: user.email, password: user.password
         expect(flash[:success]).not_to be_blank
       end
     end
@@ -41,18 +42,15 @@ describe SessionsController do
       end
 
       it "does not create a new session for the user" do
-        post :create, email: user.email, password: user.password + 'asdfghjkl'        
         expect(session[:user_id]).to be_nil
       end
 
       it "redirects to the sign_in page" do
-        post :create, email: user.email, password: user.password + 'asdfghjkl'        
         get :new
         expect(response).to render_template :new
       end
 
       it "sets the error message" do
-        post :create, email: user.email, password: user.password + 'asdfghjkl'        
         expect(flash[:danger]).not_to be_blank
       end
     end
