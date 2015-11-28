@@ -35,6 +35,7 @@ group :test do
   gem 'shoulda-matchers'
   gem 'spring'
   gem 'capybara'
+  gem 'launchy'
 end
 
 group :production do
